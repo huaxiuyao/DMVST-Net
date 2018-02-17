@@ -20,7 +20,7 @@ As shown in the framework, there are three inputs:
 
 More details will be add soon.
 
-##Citation
+## Citation
 If you find the code is userful, please cite our paper
 ```
 @inproceedings{yao2018deep,
