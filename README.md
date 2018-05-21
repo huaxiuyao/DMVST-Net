@@ -4,8 +4,6 @@
 This is a TensorFlow implementation of DMVST-Net in the following paper: \
 Huaxiu Yao, Fei Wu, Jintao Ke, Xianfeng Tang, Yitian Jia, Siyu Lu, Pinghua Gong, Jieping Ye, Zhenhui Li [Deep Multi-View Spatial-Temporal Network for Taxi Demand Prediction](https://faculty.ist.psu.edu/jessieli/Publications/2018-AAAI-taxi-demand.pdf).
 
-Note that, 
-
 ## Requirements
 - keras>=2.0.8
 - tensorflow>=1.3.0
@@ -14,13 +12,7 @@ Note that,
 ## Data
 This work is an intern work in Didi Chuxing. Due to the privacy policy, we do not provide the raw data. Maybe you can apply a similar type of data in https://outreach.didichuxing.com/appEn-vue/Personal. 
 
-## Input
-As shown in the framework, there are three inputs:
-- local demand images
-- external features
-- semantic network
-
-More details will be add soon.
+## 
 
 ## Citation
 If you find the code is userful, please cite our paper
