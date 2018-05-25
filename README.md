@@ -6,11 +6,10 @@ Huaxiu Yao, Fei Wu, Jintao Ke, Xianfeng Tang, Yitian Jia, Siyu Lu, Pinghua Gong,
 
 ## Current Version
 
-**I only put the model part on it. Other parts will be put soon.
+**I only put the model part on it. Other parts will be put soon.**
 
-The model part is just for reference**
+**The model part is just for reference**
 
-=======
 ## Requirements
 - keras>=2.0.8
 - tensorflow>=1.3.0
@@ -18,8 +17,6 @@ The model part is just for reference**
 
 ## Data
 This work is an intern work in Didi Chuxing. Due to the privacy policy, we do not provide the raw data. Maybe you can apply a similar type of data in https://outreach.didichuxing.com/appEn-vue/Personal. 
-
-=======
 
 ## Citation
 If you find the code is userful, please cite our paper
