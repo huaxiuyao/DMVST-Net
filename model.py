@@ -40,9 +40,11 @@ toponet_len = 32
 sess = tf.Session()
 K.set_session(sess)
 
+
 class Local_Seq_Conv(Layer):
 
-    def __init__(self, output_dim, seq_len, feature_size, kernel_size, activation=None, kernel_initializer='glorot_uniform',
+    def __init__(self, output_dim, seq_len, feature_size, kernel_size, activation=None,
+                 kernel_initializer='glorot_uniform',
                  bias_initializer='zeros', padding='same', strides=(1, 1), **kwargs):
         super(Local_Seq_Conv, self).__init__(**kwargs)
         self.output_dim = output_dim
@@ -84,17 +86,27 @@ class Local_Seq_Conv(Layer):
     def compute_output_shape(self, input_shape):
         return (input_shape[0], input_shape[1], input_shape[2], input_shape[3], self.output_dim)
 
+
 def build_model(trainX, trainY, testX, testY, trainimage, testimage, traintopo, testtopo, feature_len):
     # X_train, Y_train, X_test, Y_test = Featureset_get()
     image_input = Input(shape=(seq_len, local_image_size,
                                local_image_size, None), name='cnn_input')
-    spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len, kernel_size=(3, 3, 1, cnn_hidden_dim_first), activation='relu', kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same', strides=(1, 1))(image_input)
+    spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len,
+                             kernel_size=(3, 3, 1, cnn_hidden_dim_first), activation='relu',
+                             kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same',
+                             strides=(1, 1))(image_input)
     spatial = BatchNormalization()(spatial)
     # spatial = Local_Seq_Pooling(seq_len=seq_len)(spatial)
-    spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len, kernel_size=(3, 3, cnn_hidden_dim_first, cnn_hidden_dim_first), activation='relu', kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same', strides=(1, 1))(spatial)
+    spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len,
+                             kernel_size=(3, 3, cnn_hidden_dim_first, cnn_hidden_dim_first), activation='relu',
+                             kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same',
+                             strides=(1, 1))(spatial)
     spatial = BatchNormalization()(spatial)
     # spatial = Local_Seq_Pooling(seq_len=seq_len)(spatial)
-    spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len, kernel_size=(3, 3, cnn_hidden_dim_first, cnn_hidden_dim_first), activation='relu', kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same', strides=(1, 1))(spatial)
+    spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len,
+                             kernel_size=(3, 3, cnn_hidden_dim_first, cnn_hidden_dim_first), activation='relu',
+                             kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same',
+                             strides=(1, 1))(spatial)
     # spatial = Local_Seq_Pooling(seq_len=seq_len)(spatial)
     # spatial = BatchNormalization()(spatial)
     # spatial = Local_Seq_Conv(output_dim=cnn_hidden_dim_first, seq_len=seq_len, feature_size=feature_len, kernel_size=(3, 3, cnn_hidden_dim_first, cnn_hidden_dim_first), activation='relu', kernel_initializer='glorot_uniform', bias_initializer='zeros', padding='same', strides=(1, 1))(spatial)
