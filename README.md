@@ -1,6 +1,4 @@
 # Deep Multi-View Spatial-Temporal Network for Taxi Demand Prediction
-![Diffusion Convolutional Recurrent Neural Network](figures/framework.jpg "Framework")
-
 This is a TensorFlow implementation of DMVST-Net in the following paper: \
 Huaxiu Yao, Fei Wu, Jintao Ke, Xianfeng Tang, Yitian Jia, Siyu Lu, Pinghua Gong, Jieping Ye, Zhenhui Li [Deep Multi-View Spatial-Temporal Network for Taxi Demand Prediction](https://faculty.ist.psu.edu/jessieli/Publications/2018-AAAI-taxi-demand.pdf).
 
